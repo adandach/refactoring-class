@@ -18,28 +18,28 @@ public class ChartSmartTest {
     @Test
     public void testBarChart() throws Exception {
         DisplayCharts cw = new DisplayCharts();
-        cw.initializeChart(406, "rpfll", true);
+        cw.initializeChart(406, "rpfll");
         Approvals.verify(cw);
     }
 
     @Test
     public void testBarChartCompare() throws Exception {
         DisplayCharts cw = new DisplayCharts();
-        cw.initializeChart(406, "shareddisplay", true);
+        cw.initializeChart(406, "shareddisplay");
         Approvals.verify(cw);
     }
 
     @Test
     public void testPieChart() throws Exception {
         DisplayCharts cw = new DisplayCharts();
-        cw.initializeChart(323, "rpfll", true);
+        cw.initializeChart(323, "rpfll");
         Approvals.verify(cw);
     }
 
     @Test
     public void testPieChartCompare() throws Exception {
         DisplayCharts cw = new DisplayCharts();
-        cw.initializeChart(323, "shareddisplay", true);
+        cw.initializeChart(323, "shareddisplay");
         Approvals.verify(cw);
     }
 }

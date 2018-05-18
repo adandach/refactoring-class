@@ -2,32 +2,47 @@ package org.chartsmart;
 
 import java.awt.*;
 
-public class BarChart {
+class BarChart implements Chart {
+    private Mode mode;
 
-    private final String comparisonMode;
-    private static final String SHARED_MODE = "shareddisplay";
-    private static final String SINGLE_MODE = "rpfll";
-
-    public BarChart(String comparisonMode) {
-        this.comparisonMode = comparisonMode;
+    BarChart(String comparisonMode) {
+        if (comparisonMode.equals(SINGLE_MODE)) {
+            mode = new SingleMode();
+        } else {
+            mode = new CompareMode();
+        }
     }
 
-    void drawBarChart(Graphics canvas, String[] barCharts) {
-        Font font;
-        if (comparisonMode.equals(SHARED_MODE)) {
-            font = new Font("Arial Black", Font.BOLD, 25);
-            canvas.setColor(Color.CYAN);
-            int bottomY = 300;
-            canvas.fillRect(100, bottomY - 100, 40, 100);
-            canvas.fillRect(140, bottomY - 200, 40, 200);
-            canvas.fillRect(180, bottomY - 150, 40, 150);
-            canvas.fillRect(220, bottomY - 125, 40, 125);
-            canvas.fillRect(260, bottomY - 170, 40, 170);
-            canvas.setColor(Color.RED);
-            canvas.setFont(font);
-            canvas.drawString(barCharts[0], 130, 250);
-            canvas.drawString(barCharts[1], 130, 270);
-        } else {
+    private void paintTitle(Graphics canvas) {
+        mode.colorRect(canvas);
+        mode.drawTitle(canvas);
+    }
+
+    private void paintBackground(Graphics canvas, int width) {
+        mode.paintBackground(canvas, width);
+    }
+
+    public void paint(Graphics canvas, int width, int height) {
+        paintBackground(canvas, width);
+        paintTitle(canvas);
+    }
+
+    public String getTitle() {
+        return "Bar Chart - " + mode.title();
+    }
+
+    private interface Mode {
+        void colorRect(Graphics canvas);
+
+        void drawTitle(Graphics canvas);
+
+        void paintBackground(Graphics canvas, int width);
+
+        String title();
+    }
+
+    private class SingleMode implements Mode {
+        public void colorRect(Graphics canvas) {
             int bottomY = 500;
             canvas.setColor(Color.CYAN);
             canvas.fillRect(112, bottomY - 200, 75, 200);
@@ -35,36 +50,49 @@ public class BarChart {
             canvas.fillRect(262, bottomY - 300, 75, 300);
             canvas.fillRect(337, bottomY - 250, 75, 250);
             canvas.fillRect(412, bottomY - 340, 75, 340);
-            font = new Font("Arial Black", Font.BOLD, 55);
+        }
+
+        public void drawTitle(Graphics canvas) {
             canvas.setColor(Color.BLACK);
-            canvas.setFont(font);
-            canvas.drawString(barCharts[0], 130, 400);
+            canvas.setFont(new Font("Arial Black", Font.BOLD, 55));
+            canvas.drawString("Bar Chart", 130, 400);
         }
-    }
 
-    String[] createTitleForBarChart() {
-        String[] barCharts;
-        if (comparisonMode.equals(SINGLE_MODE)) {
-            barCharts = new String[1];
-            barCharts[0] = "Bar Chart";
-        } else {
-            barCharts = new String[2];
-            int i = 0;
-            barCharts[i++] = "Bar Chart";
-            barCharts[i++] = "Small";
-        }
-        return barCharts;
-    }
-
-    void colorCanvasForBarChart(Graphics canvas, int width) {
-        if (comparisonMode.equals(SINGLE_MODE)) {
-            Color backGroundColor = Color.RED;
-            canvas.setColor(backGroundColor);
+        public void paintBackground(Graphics canvas, int width) {
+            canvas.setColor(Color.RED);
             canvas.fillRect(100, 90, width - 200, 420);
-        } else {
+        }
+
+        public String title() {
+            return "Single Mode";
+        }
+    }
+
+    private class CompareMode implements Mode {
+        public void colorRect(Graphics canvas) {
+            int bottomY = 300;
+            canvas.setColor(Color.CYAN);
+            canvas.fillRect(100, bottomY - 100, 40, 100);
+            canvas.fillRect(140, bottomY - 200, 40, 200);
+            canvas.fillRect(180, bottomY - 150, 40, 150);
+            canvas.fillRect(220, bottomY - 125, 40, 125);
+            canvas.fillRect(260, bottomY - 170, 40, 170);
+        }
+
+        public void drawTitle(Graphics canvas) {
+            canvas.setColor(Color.RED);
+            canvas.setFont(new Font("Arial Black", Font.BOLD, 25));
+            canvas.drawString("Bar Chart", 130, 250);
+            canvas.drawString("Small", 130, 270);
+        }
+
+        public void paintBackground(Graphics canvas, int width) {
             canvas.setColor(Color.BLACK);
             canvas.fillRect(95, 95, 210, 210);
         }
-    }
 
+        public String title() {
+            return "Compare Mode";
+        }
+    }
 }
