@@ -5,7 +5,7 @@ import junit.framework.TestCase;
 import org.approvaltests.Approvals;
 import org.approvaltests.reporters.DelayedClipboardReporter;
 import org.approvaltests.reporters.UseReporter;
-import org.chartsmart.IndvDsp;
+import org.chartsmart.Chart;
 import org.chartsmart.MainWindow;
 
 @UseReporter(DelayedClipboardReporter.class)
@@ -18,25 +18,25 @@ public class ChartSmartTest extends TestCase
   }
   public void testBarChart() throws Exception
   {
-    IndvDsp cw = new IndvDsp();
+    Chart cw = new Chart();
     cw.setChartTypeAndSetChartDisplayAndOptionallyShowDrawArea(406, "rpfll", true);
     Approvals.verify(cw);
   }
   public void testBarChartCompare() throws Exception
   {
-    IndvDsp cw = new IndvDsp();
+    Chart cw = new Chart();
     cw.setChartTypeAndSetChartDisplayAndOptionallyShowDrawArea(406, "shareddisplay", true);
     Approvals.verify(cw);
   }
   public void testPieChart() throws Exception
   {
-    IndvDsp cw = new IndvDsp();
+    Chart cw = new Chart();
     cw.setChartTypeAndSetChartDisplayAndOptionallyShowDrawArea(323, "rpfll", true);
     Approvals.verify(cw);
   }
   public void testPieChartCompare() throws Exception
   {
-    IndvDsp cw = new IndvDsp();
+    Chart cw = new Chart();
     cw.setChartTypeAndSetChartDisplayAndOptionallyShowDrawArea(323, "shareddisplay", true);
     Approvals.verify(cw);
   }
