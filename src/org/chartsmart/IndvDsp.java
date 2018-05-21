@@ -1,45 +1,45 @@
 package org.chartsmart;
 
 import javax.swing.*;
+import java.util.List;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 public class IndvDsp extends JPanel {
-    private String jjD;
-    private String __APARAM__Z;
-    private int ct;
+    private String rpfllOrSharedDisplay;
+    private String title;
+    private int barChartOrPieChart;
+    static private int BAR_CHART_INDICATOR = 406;
+    static private String RPFLL = "rpfll";
+    static private String SHARED_DISPLAY = "shareddisplay";
 
-    /**
-     * InitializeDrawArea
-     */
-    private void iHATEthisUckingJob() {
+    private void InitializeDrawArea() {
         this.setPreferredSize(new Dimension(600, 600));
-        if (ct == 406) {
-            if (jjD.equals("rpfll")) {
-                __APARAM__Z = "Bar Chart - Single Mode";
+        if (barChartOrPieChart == BAR_CHART_INDICATOR) {
+            if (rpfllOrSharedDisplay.equals(RPFLL)) {
+                title = "Bar Chart - Single Mode";
             } else {
-                __APARAM__Z = "Bar Chart - Compare Mode";
+                title = "Bar Chart - Compare Mode";
             }
         } else {
-            if (jjD.equals("rpfll")) {
-                __APARAM__Z = "Pie Chart - Single Mode";
+            if (rpfllOrSharedDisplay.equals(RPFLL)) {
+                title = "Pie Chart - Single Mode";
             } else {
-                __APARAM__Z = "Pie Chart - Compare Mode";
+                title = "Pie Chart - Compare Mode";
             }
+
         }
     }
-
     String getTitle() {
-        return __APARAM__Z;
+        return title;
     }
 
-    public void iniDS(int ct, String stjjDReq1205, boolean b) {
-        this.ct = ct;
-        this.jjD = stjjDReq1205;
-        if (b) {
-            iHATEthisUckingJob();
+    public void setChartTypeAndSetChartDisplayAndOptionallyShowDrawArea(int barChartOrPieChart, String rpfllOrSharedDisplay, boolean showDrawArea) {
+        this.barChartOrPieChart = barChartOrPieChart;
+        this.rpfllOrSharedDisplay = rpfllOrSharedDisplay;
+        if (showDrawArea) {
+            InitializeDrawArea();
         }
     }
 
@@ -54,8 +54,8 @@ public class IndvDsp extends JPanel {
     }
 
     private void DrawChart(Graphics g) {
-        if (ct == 406) {
-            if (jjD.equals("rpfll")) {
+        if (barChartOrPieChart == BAR_CHART_INDICATOR) {
+            if (rpfllOrSharedDisplay.equals(RPFLL)) {
                 Color bgc = Color.RED;
                 g.setColor(bgc);
                 g.fillRect(100, 90, getWidth() - 200, 420);
@@ -64,7 +64,7 @@ public class IndvDsp extends JPanel {
                 g.fillRect(95, 95, 210, 210);
             }
         } else {
-            if (jjD.equals("rpfll")) {
+            if (rpfllOrSharedDisplay.equals(RPFLL)) {
                 Color bgcb;
                 bgcb = Color.BLUE;
                 g.setColor(bgcb);
@@ -80,8 +80,8 @@ public class IndvDsp extends JPanel {
         String[] data = null;
         List<String> specialData = new ArrayList<>();
         String[] data3point14 = new String[0];
-        if (ct == 406) {
-            if (jjD.equals("rpfll")) {
+        if (barChartOrPieChart == BAR_CHART_INDICATOR) {
+            if (rpfllOrSharedDisplay.equals(RPFLL)) {
                 data = new String[1];
                 data[0] = "Bar Chart";
             } else {
@@ -91,7 +91,7 @@ public class IndvDsp extends JPanel {
                 data[i++] = "Small";
             }
         } else {
-            if (jjD.equals("rpfll")) {
+            if (rpfllOrSharedDisplay.equals(RPFLL)) {
                 specialData.add("Pie Chart");
             } else {
                 data3point14 = new String[2];
@@ -100,8 +100,8 @@ public class IndvDsp extends JPanel {
             }
         }
         Font font;
-        if (ct == 406) {
-            if (jjD.equals("shareddisplay")) {
+        if (barChartOrPieChart == BAR_CHART_INDICATOR) {
+            if (rpfllOrSharedDisplay.equals(SHARED_DISPLAY)) {
                 if (data != null) {
                     font = new Font("Arial Black", Font.BOLD, 25);
                     g.setColor(Color.CYAN);
@@ -130,7 +130,7 @@ public class IndvDsp extends JPanel {
                 g.drawString(data[0], 130, 400);
             }
         } else {
-            if (jjD.equals("rpfll")) {
+            if (rpfllOrSharedDisplay.equals(RPFLL)) {
                 font = new Font("Bookman Old Style", Font.BOLD, 55);
                 g.setColor(Color.WHITE);
                 g.setFont(font);
