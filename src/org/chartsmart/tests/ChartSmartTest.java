@@ -19,25 +19,25 @@ public class ChartSmartTest extends TestCase
   public void testBarChart() throws Exception
   {
     Chart cw = new Chart();
-    cw.setChartTypeAndSetChartDisplayAndOptionallyShowDrawArea(406, "rpfll", true);
+    cw.initialize(406, "rpfll", true);
     Approvals.verify(cw);
   }
   public void testBarChartCompare() throws Exception
   {
     Chart cw = new Chart();
-    cw.setChartTypeAndSetChartDisplayAndOptionallyShowDrawArea(406, "shareddisplay", true);
+    cw.initialize(406, "shareddisplay", true);
     Approvals.verify(cw);
   }
   public void testPieChart() throws Exception
   {
     Chart cw = new Chart();
-    cw.setChartTypeAndSetChartDisplayAndOptionallyShowDrawArea(323, "rpfll", true);
+    cw.initialize(323, "rpfll", true);
     Approvals.verify(cw);
   }
   public void testPieChartCompare() throws Exception
   {
     Chart cw = new Chart();
-    cw.setChartTypeAndSetChartDisplayAndOptionallyShowDrawArea(323, "shareddisplay", true);
+    cw.initialize(323, "shareddisplay", true);
     Approvals.verify(cw);
   }
 }

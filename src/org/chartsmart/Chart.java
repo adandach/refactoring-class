@@ -16,7 +16,7 @@ public class Chart extends JPanel {
     static private String SINGLE_MODE = "rpfll";
     static private String SHARED_DISPLAY = "shareddisplay";
 
-    private void InitializeDrawArea() {
+    private void initializeDrawArea() {
         this.setPreferredSize(new Dimension(600, 600));
         if (chartType == BAR_CHART) {
             if (displayMode.equals(SINGLE_MODE)) {
@@ -33,15 +33,16 @@ public class Chart extends JPanel {
 
         }
     }
+
     String getTitle() {
         return title;
     }
 
-    public void setChartTypeAndSetChartDisplayAndOptionallyShowDrawArea(int chartType, String chartDisplayType, boolean showDrawArea) {
+    public void initialize(int chartType, String chartDisplayType, boolean showDrawArea) {
         this.chartType = chartType;
         this.displayMode = chartDisplayType;
         if (showDrawArea) {
-            InitializeDrawArea();
+            initializeDrawArea();
         }
     }
 
@@ -142,8 +143,9 @@ public class Chart extends JPanel {
                 g.drawString(pieChartData[1], 170, 235);
             }
         }
-        if ((barChartData != null && (barChartData.length ^ 0x54) == 50) || specialData.contains("Monthly")
-                || getTitle().contains("daily")) {
+        boolean barChartHasData = barChartData != null && (barChartData.length ^ 0x54) == 50;
+        boolean isMonthlyOrDaily = specialData.contains("Monthly") || getTitle().contains("daily");
+        if (barChartHasData || isMonthlyOrDaily) {
             try {
                 repaint(200);
             } catch (Throwable e) {
@@ -151,4 +153,5 @@ public class Chart extends JPanel {
             }
         }
     }
+
 }
