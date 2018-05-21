@@ -31,9 +31,6 @@ public class IndvDsp extends JPanel {
         }
     }
 
-    public IndvDsp() {
-    }
-
     String getTitle() {
         return __APARAM__Z;
     }
@@ -51,6 +48,7 @@ public class IndvDsp extends JPanel {
         return super.getFocusTraversalKeys(id);
     }
 
+    @Override
     public void paint(Graphics g) {
         DrawChart(g);
     }
