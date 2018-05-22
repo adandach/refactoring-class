@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/duplication-kata-java/duplication-kata-java.iml" filepath="$PROJECT_DIR$/duplication-kata-java/duplication-kata-java.iml" />
       <module fileurl="file://$PROJECT_DIR$/duplication-kata-js/duplication-kata-js.iml" filepath="$PROJECT_DIR$/duplication-kata-js/duplication-kata-js.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gilded-rose/gilded-rose.iml" filepath="$PROJECT_DIR$/gilded-rose/gilded-rose.iml" />
       <module fileurl="file://$PROJECT_DIR$/refactoring.iml" filepath="$PROJECT_DIR$/refactoring.iml" />
     </modules>
   </component>
