@@ -7,7 +7,18 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="ApprovalTests" level="project" />
-    <orderEntry type="library" name="junit-4.12" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/jars" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/jars" />
+        </SOURCES>
+        <jarDirectory url="file://$MODULE_DIR$/jars" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/jars" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
   </component>
 </module>
