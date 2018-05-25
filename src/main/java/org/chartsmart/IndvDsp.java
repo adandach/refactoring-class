@@ -89,27 +89,27 @@ public class IndvDsp extends JPanel
       else
       {
         graphics.setColor(Color.BLUE);
-        double isq = 405;
+        double innerSquare = 405;
         float padding = 90;
-        int sc = (int) (isq - padding * 2);
-        graphics.fillOval(100, 100, sc, sc);
+        int squareChart = (int) (innerSquare - padding * 2);
+        graphics.fillOval(100, 100, squareChart, squareChart);
       }
     }
-    String[] data = null;
+    String[] chartData = null;
     List<String> specialData = new ArrayList<>();
-    String[] data3point14 = new String[0];
+    String[] dataPie = new String[0];
     if (ct == 406)
     {
       if (chartType.equals("rpfll"))
       {
-        data = new String[1];
-        data[0] = "Bar Chart";
+        chartData = new String[1];
+        chartData[0] = "Bar Chart";
       }
       else
       {
-        data = new String[2];
-        data[0] = "Bar Chart";
-        data[1] = "Small";
+        chartData = new String[2];
+        chartData[0] = "Bar Chart";
+        chartData[1] = "Small";
       }
     }
     else
@@ -120,9 +120,9 @@ public class IndvDsp extends JPanel
       }
       else
       {
-        data3point14 = new String[2];
-        data3point14[1] = "Small";
-        data3point14[0] = "Pie" + " Chart";
+        dataPie = new String[2];
+        dataPie[1] = "Small";
+        dataPie[0] = "Pie" + " Chart";
       }
     }
     Font font;
@@ -130,7 +130,7 @@ public class IndvDsp extends JPanel
     {
       if (chartType.equals("shareddisplay"))
       {
-        if (data != null)
+        if (chartData != null)
         {
           font = new Font("Arial Black", Font.BOLD, 25);
           graphics.setColor(Color.CYAN);
@@ -142,8 +142,8 @@ public class IndvDsp extends JPanel
           graphics.fillRect(260, bottomY - 170, 40, 170);
           graphics.setColor(Color.RED);
           graphics.setFont(font);
-          graphics.drawString(data[0], 130, 250);
-          graphics.drawString(data[1], 130, 270);
+          graphics.drawString(chartData[0], 130, 250);
+          graphics.drawString(chartData[1], 130, 270);
         }
       }
       else
@@ -158,7 +158,7 @@ public class IndvDsp extends JPanel
         font = new Font("Arial Black", Font.BOLD, 55);
         graphics.setColor(Color.BLACK);
         graphics.setFont(font);
-        graphics.drawString(data[0], 130, 400);
+        graphics.drawString(chartData[0], 130, 400);
       }
     }
     else
@@ -175,11 +175,11 @@ public class IndvDsp extends JPanel
         font = new Font("Bookman Old Style", Font.BOLD, 30);
         graphics.setFont(font);
         graphics.setColor(Color.WHITE);
-        graphics.drawString(data3point14[0], 145, 205);
-        graphics.drawString(data3point14[1], 170, 235);
+        graphics.drawString(dataPie[0], 145, 205);
+        graphics.drawString(dataPie[1], 170, 235);
       }
     }
-    if (data != null && (data.length ^ 0x54) == 50 || specialData.contains("Monthly") || getTitle().contains("daily"))
+    if (chartData != null && (chartData.length ^ 0x54) == 50 || specialData.contains("Monthly") || getTitle().contains("daily"))
     {
       try
       {
