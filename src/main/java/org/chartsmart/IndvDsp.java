@@ -6,7 +6,6 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -46,7 +45,7 @@ public class IndvDsp extends JPanel
   public IndvDsp()
   {
   }
-  public String getTitle()
+  String getTitle()
   {
     return __APARAM__Z;
   }
@@ -106,7 +105,7 @@ public class IndvDsp extends JPanel
       }
     }
     String[] data = null;
-    List<String> specialData = new ArrayList<String>();
+    List<String> specialData = new ArrayList<>();
     String[] data3point14 = new String[0];
     if (ct == 406)
     {
@@ -118,9 +117,8 @@ public class IndvDsp extends JPanel
       else
       {
         data = new String[2];
-        int i = 0;
-        data[i++] = "Bar Chart";
-        data[i++] = "Small";
+        data[0] = "Bar Chart";
+        data[1] = "Small";
       }
     }
     else
@@ -190,8 +188,7 @@ public class IndvDsp extends JPanel
         g.drawString(data3point14[1], 170, 235);
       }
     }
-    if ((data != null && (data.length ^ 0x54) == 50) || (specialData != null && specialData.contains("Monthly"))
-        || getTitle().contains("daily"))
+    if (data != null && (data.length ^ 0x54) == 50 || specialData.contains("Monthly") || getTitle().contains("daily"))
     {
       try
       {
