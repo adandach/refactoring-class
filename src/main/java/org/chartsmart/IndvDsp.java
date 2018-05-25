@@ -21,7 +21,6 @@ public class IndvDsp extends JPanel
   private String   jjD;
   private String   __APARAM__Z;
   private int      ct;
-  private String   chartTitle;
   /**
    * InitializeDrawArea
    */
@@ -51,7 +50,6 @@ public class IndvDsp extends JPanel
       }
     }
   }
-  private Unit defaultUnits;
   public IndvDsp()
   {
   }
@@ -63,10 +61,6 @@ public class IndvDsp extends JPanel
    * 
    * @return
    */
-  private Unit horizontalNaming()
-  {
-    return new Unit();
-  }
   /**
    * Shows the chart
    * 
@@ -81,7 +75,6 @@ public class IndvDsp extends JPanel
   {
     this.ct = ct;
     this.jjD = stjjDReq1205;
-    // Changed by Sally 2/14		
     if (b)
     {
       iHATEthisUckingJob();
@@ -166,7 +159,6 @@ public class IndvDsp extends JPanel
     }
     else
     {
-      // BUG445: Org rep team missing req chart
       if (jjD.equals("rpfll"))
       {
         specialData.add("Pie Chart");
@@ -187,7 +179,7 @@ public class IndvDsp extends JPanel
         {
           if (data == null)
           {
-            // get the defatauls data
+            // get the default data
             data = new String[5];
             data[0] = "Sally";
             data[1] = System.getProperty("osname");
