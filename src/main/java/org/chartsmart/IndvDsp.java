@@ -98,21 +98,19 @@ public class IndvDsp extends JPanel
         graphics.fillOval(100, 100, squareChart, squareChart);
       }
     }
-    String[] chartData = null;
+    String[] barChartData = null;
     List<String> specialData = new ArrayList<>();
     String[] pieChartData = new String[0];
     if (ct == 406)
     {
       if (chartType.equals("rpfll"))
       {
-        chartData = new String[1];
-        chartData[0] = BAR_CHART;
+        barChartData[0] = BAR_CHART;
       }
       else
       {
-        chartData = new String[2];
-        chartData[0] = BAR_CHART;
-        chartData[1] = SMALL;
+        barChartData[0] = BAR_CHART;
+        barChartData[1] = SMALL;
       }
     }
     else
@@ -133,7 +131,7 @@ public class IndvDsp extends JPanel
     {
       if (chartType.equals("shareddisplay"))
       {
-        if (chartData != null)
+        if (barChartData != null)
         {
           chartFont = new Font("Arial Black", Font.BOLD, 25);
           graphics.setColor(Color.CYAN);
@@ -145,8 +143,8 @@ public class IndvDsp extends JPanel
           graphics.fillRect(260, chartBottom - 170, 40, 170);
           graphics.setColor(Color.RED);
           graphics.setFont(chartFont);
-          graphics.drawString(chartData[0], 130, 250);
-          graphics.drawString(chartData[1], 130, 270);
+          graphics.drawString(barChartData[0], 130, 250);
+          graphics.drawString(barChartData[1], 130, 270);
         }
       }
       else
@@ -161,7 +159,7 @@ public class IndvDsp extends JPanel
         chartFont = new Font("Arial Black", Font.BOLD, 55);
         graphics.setColor(Color.BLACK);
         graphics.setFont(chartFont);
-        graphics.drawString(chartData[0], 130, 400);
+        graphics.drawString(barChartData[0], 130, 400);
       }
     }
     else
@@ -182,7 +180,7 @@ public class IndvDsp extends JPanel
         graphics.drawString(pieChartData[1], 170, 235);
       }
     }
-    if (chartData != null && (chartData.length ^ 0x54) == 50 || specialData.contains("Monthly") || getTitle().contains("daily"))
+    if (barChartData != null && (barChartData.length ^ 0x54) == 50 || specialData.contains("Monthly") || getTitle().contains("daily"))
     {
       try
       {
