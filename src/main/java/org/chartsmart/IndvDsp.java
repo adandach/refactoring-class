@@ -13,32 +13,32 @@ import javax.swing.JPanel;
 
 public class IndvDsp extends JPanel
 {
-  private String   jjD;
-  private String   __APARAM__Z;
-  private int      ct;
-  private void setAparamZ()
+  private String chartType;
+  private String chartTitle;
+  private int counter;
+  private void setChartTitle()
   {
     this.setPreferredSize(new Dimension(600, 600));
-    if (ct == 406)
+    if (counter == 406)
     {
-      if (jjD.equals("rpfll"))
+      if (chartType.equals("rpfll"))
       {
-        __APARAM__Z = "Bar Chart - Single Mode";
+        chartTitle = "Bar Chart - Single Mode";
       }
       else
       {
-        __APARAM__Z = "Bar" + " Chart - Compare Mode";
+        chartTitle = "Bar" + " Chart - Compare Mode";
       }
     }
     else
     {
-      if (jjD.equals("rpfll"))
+      if (chartType.equals("rpfll"))
       {
-        __APARAM__Z = "Pie Chart - Single Mode";
+        chartTitle = "Pie Chart - Single Mode";
       }
       else
       {
-        __APARAM__Z = "Pie Chart - Compare Mode";
+        chartTitle = "Pie Chart - Compare Mode";
       }
     }
   }
@@ -47,16 +47,16 @@ public class IndvDsp extends JPanel
   }
   String getTitle()
   {
-    return __APARAM__Z;
+    return chartTitle;
   }
 
-  public void iniDS(int ct, String stjjDReq1205, boolean b)
+  public void initializeDS(int ct, String chartType, boolean b)
   {
-    this.ct = ct;
-    this.jjD = stjjDReq1205;
+    this.counter = ct;
+    this.chartType = chartType;
     if (b)
     {
-      setAparamZ();
+      setChartTitle();
     }
   }
   @Override
@@ -72,9 +72,9 @@ public class IndvDsp extends JPanel
   private void DrawChart(Graphics g)
   {
     // Render chart background
-    if (ct == 406)
+    if (counter == 406)
     {
-      if (jjD.equals("rpfll"))
+      if (chartType.equals("rpfll"))
       {
         Color bgc = Color.RED;
         g.setColor(bgc);
@@ -88,7 +88,7 @@ public class IndvDsp extends JPanel
     }
     else
     {
-      if (jjD.equals("rpfll"))
+      if (chartType.equals("rpfll"))
       {
         Color bgcb;
         bgcb = Color.BLUE;
@@ -107,9 +107,9 @@ public class IndvDsp extends JPanel
     String[] data = null;
     List<String> specialData = new ArrayList<>();
     String[] data3point14 = new String[0];
-    if (ct == 406)
+    if (counter == 406)
     {
-      if (jjD.equals("rpfll"))
+      if (chartType.equals("rpfll"))
       {
         data = new String[1];
         data[0] = "Bar Chart";
@@ -123,7 +123,7 @@ public class IndvDsp extends JPanel
     }
     else
     {
-      if (jjD.equals("rpfll"))
+      if (chartType.equals("rpfll"))
       {
         specialData.add("Pie Chart");
       }
@@ -135,9 +135,9 @@ public class IndvDsp extends JPanel
       }
     }
     Font font;
-    if (ct == 406)
+    if (counter == 406)
     {
-      if (jjD.equals("shareddisplay"))
+      if (chartType.equals("shareddisplay"))
       {
         if (data != null)
         {
@@ -172,7 +172,7 @@ public class IndvDsp extends JPanel
     }
     else
     {
-      if (jjD.equals("rpfll"))
+      if (chartType.equals("rpfll"))
       {
         font = new Font("Bookman Old Style", Font.BOLD, 55);
         g.setColor(Color.WHITE);
