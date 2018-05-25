@@ -16,7 +16,7 @@ public class IndvDsp extends JPanel
   private String   jjD;
   private String   __APARAM__Z;
   private int      ct;
-  private void iHATEthisUckingJob()
+  private void setAparamZ()
   {
     this.setPreferredSize(new Dimension(600, 600));
     if (ct == 406)
@@ -56,7 +56,7 @@ public class IndvDsp extends JPanel
     this.jjD = stjjDReq1205;
     if (b)
     {
-      iHATEthisUckingJob();
+      setAparamZ();
     }
   }
   @Override
