@@ -97,7 +97,7 @@ public class IndvDsp extends JPanel
     }
     String[] chartData = null;
     List<String> specialData = new ArrayList<>();
-    String[] dataPie = new String[0];
+    String[] pieChartData = new String[0];
     if (ct == 406)
     {
       if (chartType.equals("rpfll"))
@@ -120,19 +120,19 @@ public class IndvDsp extends JPanel
       }
       else
       {
-        dataPie = new String[2];
-        dataPie[1] = "Small";
-        dataPie[0] = "Pie" + " Chart";
+        pieChartData = new String[2];
+        pieChartData[1] = "Small";
+        pieChartData[0] = "Pie" + " Chart";
       }
     }
-    Font font;
+    Font chartFont;
     if (ct == 406)
     {
       if (chartType.equals("shareddisplay"))
       {
         if (chartData != null)
         {
-          font = new Font("Arial Black", Font.BOLD, 25);
+          chartFont = new Font("Arial Black", Font.BOLD, 25);
           graphics.setColor(Color.CYAN);
           int bottomY = 300;
           graphics.fillRect(100, bottomY - 100, 40, 100);
@@ -141,7 +141,7 @@ public class IndvDsp extends JPanel
           graphics.fillRect(220, bottomY - 125, 40, 125);
           graphics.fillRect(260, bottomY - 170, 40, 170);
           graphics.setColor(Color.RED);
-          graphics.setFont(font);
+          graphics.setFont(chartFont);
           graphics.drawString(chartData[0], 130, 250);
           graphics.drawString(chartData[1], 130, 270);
         }
@@ -155,9 +155,9 @@ public class IndvDsp extends JPanel
         graphics.fillRect(262, bottomY - 300, 75, 300);
         graphics.fillRect(337, bottomY - 250, 75, 250);
         graphics.fillRect(412, bottomY - 340, 75, 340);
-        font = new Font("Arial Black", Font.BOLD, 55);
+        chartFont = new Font("Arial Black", Font.BOLD, 55);
         graphics.setColor(Color.BLACK);
-        graphics.setFont(font);
+        graphics.setFont(chartFont);
         graphics.drawString(chartData[0], 130, 400);
       }
     }
@@ -165,18 +165,18 @@ public class IndvDsp extends JPanel
     {
       if (chartType.equals("rpfll"))
       {
-        font = new Font("Bookman Old Style", Font.BOLD, 55);
+        chartFont = new Font("Bookman Old Style", Font.BOLD, 55);
         graphics.setColor(Color.WHITE);
-        graphics.setFont(font);
+        graphics.setFont(chartFont);
         graphics.drawString(specialData.get(0), 200, 340);
       }
       else
       {
-        font = new Font("Bookman Old Style", Font.BOLD, 30);
-        graphics.setFont(font);
+        chartFont = new Font("Bookman Old Style", Font.BOLD, 30);
+        graphics.setFont(chartFont);
         graphics.setColor(Color.WHITE);
-        graphics.drawString(dataPie[0], 145, 205);
-        graphics.drawString(dataPie[1], 170, 235);
+        graphics.drawString(pieChartData[0], 145, 205);
+        graphics.drawString(pieChartData[1], 170, 235);
       }
     }
     if (chartData != null && (chartData.length ^ 0x54) == 50 || specialData.contains("Monthly") || getTitle().contains("daily"))
