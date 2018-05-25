@@ -14,7 +14,7 @@
 
 ### Pattern
 1. Sparrow Deck
-1. [Mind Map](https://drive.mindmup.com)
+1. [Mind Map](https://drive.mindmup.com/map/1nyxPc5KaAP_rBcWAOwdH-BHoJVnFv55x)
 1. Do
     * Clean up code
     * Roles
@@ -24,10 +24,11 @@
     * Commit before every switch
 
 ### Refactoring Exercises
-1. Clutter
 1. Naming
 1. Long Lines
 1. Long Methods
 1. Duplication
     
 ## Day 1
+1. Clutter
+1. Naming (Partial)
