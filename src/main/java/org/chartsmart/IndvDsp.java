@@ -72,8 +72,8 @@ public class IndvDsp extends JPanel
     {
       if (chartType.equals("rpfll"))
       {
-        Color bgc = Color.RED;
-        g.setColor(bgc);
+        Color background = Color.RED;
+        g.setColor(background);
         g.fillRect(100, 90, getWidth() - 200, 420);
       }
       else
@@ -86,9 +86,8 @@ public class IndvDsp extends JPanel
     {
       if (chartType.equals("rpfll"))
       {
-        Color bgcb;
-        bgcb = Color.BLUE;
-        g.setColor(bgcb);
+        Color backgroundBlue = Color.BLUE;
+        g.setColor(backgroundBlue);
         g.fillOval(100, 100, 450, getHeight() - 150);
       }
       else
