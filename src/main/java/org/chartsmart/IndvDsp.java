@@ -50,20 +50,16 @@ public class IndvDsp extends JPanel
     return chartTitle;
   }
 
-  public void initializeDS(int ct, String chartType, boolean b)
+  public void initializeDS(int ct, String chartType, boolean hasTitle)
   {
     this.counter = ct;
     this.chartType = chartType;
-    if (b)
+    if (hasTitle)
     {
       setChartTitle();
     }
   }
-  @Override
-  public Set<AWTKeyStroke> getFocusTraversalKeys(int id)
-  {
-    return super.getFocusTraversalKeys(id);
-  }
+
   public void paint(Graphics g)
   {
     DrawChart(g);
