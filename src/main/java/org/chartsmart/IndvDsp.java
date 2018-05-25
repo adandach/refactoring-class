@@ -1,13 +1,11 @@
 package org.chartsmart;
 
-import java.awt.AWTKeyStroke;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import javax.swing.JPanel;
 
@@ -15,11 +13,11 @@ public class IndvDsp extends JPanel
 {
   private String chartType;
   private String chartTitle;
-  private int counter;
+  private int ct;
   private void setChartTitle()
   {
     this.setPreferredSize(new Dimension(600, 600));
-    if (counter == 406)
+    if (ct == 406)
     {
       if (chartType.equals("rpfll"))
       {
@@ -52,7 +50,7 @@ public class IndvDsp extends JPanel
 
   public void initializeDS(int ct, String chartType, boolean hasTitle)
   {
-    this.counter = ct;
+    this.ct = ct;
     this.chartType = chartType;
     if (hasTitle)
     {
@@ -68,7 +66,7 @@ public class IndvDsp extends JPanel
   private void DrawChart(Graphics g)
   {
     // Render chart background
-    if (counter == 406)
+    if (ct == 406)
     {
       if (chartType.equals("rpfll"))
       {
@@ -100,7 +98,7 @@ public class IndvDsp extends JPanel
     String[] data = null;
     List<String> specialData = new ArrayList<>();
     String[] data3point14 = new String[0];
-    if (counter == 406)
+    if (ct == 406)
     {
       if (chartType.equals("rpfll"))
       {
@@ -128,7 +126,7 @@ public class IndvDsp extends JPanel
       }
     }
     Font font;
-    if (counter == 406)
+    if (ct == 406)
     {
       if (chartType.equals("shareddisplay"))
       {
