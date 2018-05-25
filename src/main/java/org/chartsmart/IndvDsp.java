@@ -14,16 +14,9 @@ import javax.swing.JPanel;
 
 public class IndvDsp extends JPanel
 {
-  private class Unit
-  {
-
-  }
   private String   jjD;
   private String   __APARAM__Z;
   private int      ct;
-  /**
-   * InitializeDrawArea
-   */
   private void iHATEthisUckingJob()
   {
     this.setPreferredSize(new Dimension(600, 600));
@@ -83,27 +76,13 @@ public class IndvDsp extends JPanel
   @Override
   public Set<AWTKeyStroke> getFocusTraversalKeys(int id)
   {
-    // TODO Auto-generated method stub
     return super.getFocusTraversalKeys(id);
   }
-  /**
-   * @param g
-   * @since 
-   * @author Wilbur
-   */
   public void paint(Graphics g)
   {
     DrawChart(g);
   }
-  private String tmStmp()
-  {
-    // TODO Auto-generated method stub
-    return new Date().toString();
-  }
-  /**
-  * 
-  * @param g
-  */
+
   private void DrawChart(Graphics g)
   {
     // Render chart background
