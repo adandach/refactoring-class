@@ -11,6 +11,9 @@ import javax.swing.JPanel;
 
 public class IndvDsp extends JPanel
 {
+  public static final String BAR_CHART = "Bar Chart";
+  public static final String SMALL = "Small";
+  public static final String PIE_CHART = "Pie Chart";
   private String chartType;
   private String chartTitle;
   private int ct;
@@ -103,26 +106,26 @@ public class IndvDsp extends JPanel
       if (chartType.equals("rpfll"))
       {
         chartData = new String[1];
-        chartData[0] = "Bar Chart";
+        chartData[0] = BAR_CHART;
       }
       else
       {
         chartData = new String[2];
-        chartData[0] = "Bar Chart";
-        chartData[1] = "Small";
+        chartData[0] = BAR_CHART;
+        chartData[1] = SMALL;
       }
     }
     else
     {
       if (chartType.equals("rpfll"))
       {
-        specialData.add("Pie Chart");
+        specialData.add(PIE_CHART);
       }
       else
       {
         pieChartData = new String[2];
-        pieChartData[1] = "Small";
-        pieChartData[0] = "Pie" + " Chart";
+        pieChartData[1] = SMALL;
+        pieChartData[0] = PIE_CHART;
       }
     }
     Font chartFont;
