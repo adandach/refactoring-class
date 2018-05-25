@@ -60,10 +60,10 @@ public class IndvDsp extends JPanel
 
   public void paint(Graphics g)
   {
-    DrawChart(g);
+    drawChart(g);
   }
 
-  private void DrawChart(Graphics graphics)
+  private void drawChart(Graphics graphics)
   {
     // Render chart background
     if (ct == 406)
