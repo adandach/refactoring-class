@@ -50,20 +50,7 @@ public class IndvDsp extends JPanel
   {
     return __APARAM__Z;
   }
-  /**
-   * 
-   * @return
-   */
-  /**
-   * Shows the chart
-   * 
-   * @param ct
-   * @param jjReq1205
-   * @param orientation
-   * @param reversornotreverse
-   * @param jackshiddenhack
-   * @return
-   */
+
   public void iniDS(int ct, String stjjDReq1205, boolean b)
   {
     this.ct = ct;
