@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 public class IndvDsp extends JPanel {
 
     public static final String RPFLL = "rpfll";
+    public static final int INT = 406;
     private String jjD;
     private String chartType;
     private int ct;
@@ -23,7 +24,7 @@ public class IndvDsp extends JPanel {
      */
     private void InitializeDrawArea() {
         this.setPreferredSize(new Dimension(600, 600));
-        if (ct == 406) {
+        if (ct == INT) {
             if (jjD.equals(RPFLL)) {
                 chartType = "Bar Chart - Single Mode";
             } else {
@@ -42,10 +43,10 @@ public class IndvDsp extends JPanel {
         return chartType;
     }
 
-    public void initializeDS(int ct, String stjjDReq1205, boolean b) {
+    public void initializeDS(int ct, String stjjDReq1205, boolean doInitialize) {
         this.ct = ct;
         this.jjD = stjjDReq1205;
-        if (b) {
+        if (doInitialize) {
             InitializeDrawArea();
         }
     }
@@ -55,12 +56,12 @@ public class IndvDsp extends JPanel {
         return super.getFocusTraversalKeys(id);
     }
 
-    public void paint(Graphics g) {
-        DrawChart(g);
+    public void paint(Graphics graphics) {
+        DrawChart(graphics);
     }
 
     private void DrawChart(Graphics graphic) {
-        if (ct == 406) {
+        if (ct == INT) {
             if (jjD.equals(RPFLL)) {
                 Color backgroundColor = Color.RED;
                 graphic.setColor(backgroundColor);
@@ -86,7 +87,7 @@ public class IndvDsp extends JPanel {
         String[] data = null;
         List<String> specialData = new ArrayList<>();
         String[] data3point14 = new String[0];
-        if (ct == 406) {
+        if (ct == INT) {
             if (jjD.equals(RPFLL)) {
                 data = new String[1];
                 data[0] = "Bar Chart";
@@ -106,7 +107,7 @@ public class IndvDsp extends JPanel {
             }
         }
         Font font;
-        if (ct == 406) {
+        if (ct == INT) {
             if (jjD.equals("shareddisplay")) {
                 if (data != null) {
                     font = new Font("Arial Black", Font.BOLD, 25);
