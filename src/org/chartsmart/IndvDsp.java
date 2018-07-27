@@ -14,38 +14,38 @@ import javax.swing.JPanel;
 public class IndvDsp extends JPanel {
 
     private String jjD;
-    private String __APARAM__Z;
+    private String chartType;
     private int ct;
 
     /**
      * InitializeDrawArea
      */
-    private void iHATEthisUckingJob() {
+    private void InitializeDrawArea() {
         this.setPreferredSize(new Dimension(600, 600));
         if (ct == 406) {
             if (jjD.equals("rpfll")) {
-                __APARAM__Z = "Bar Chart - Single Mode";
+                chartType = "Bar Chart - Single Mode";
             } else {
-                __APARAM__Z = "Bar" + " Chart - Compare Mode";
+                chartType = "Bar" + " Chart - Compare Mode";
             }
         } else {
             if (jjD.equals("rpfll")) {
-                __APARAM__Z = "Pie Chart - Single Mode";
+                chartType = "Pie Chart - Single Mode";
             } else {
-                __APARAM__Z = "Pie Chart - Compare Mode";
+                chartType = "Pie Chart - Compare Mode";
             }
         }
     }
 
     String getTitle() {
-        return __APARAM__Z;
+        return chartType;
     }
 
-    public void iniDS(int ct, String stjjDReq1205, boolean b) {
+    public void initializeDS(int ct, String stjjDReq1205, boolean b) {
         this.ct = ct;
         this.jjD = stjjDReq1205;
         if (b) {
-            iHATEthisUckingJob();
+            InitializeDrawArea();
         }
     }
 
