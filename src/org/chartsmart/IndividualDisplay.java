@@ -11,7 +11,7 @@ import java.util.Set;
 
 import javax.swing.JPanel;
 
-public class IndvDsp extends JPanel {
+public class IndividualDisplay extends JPanel {
 
     public static final String RPFLL = "rpfll";
     public static final int INT = 406;
