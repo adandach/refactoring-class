@@ -11,9 +11,9 @@ import javax.swing.JPanel;
 
 public class Chart extends JPanel {
 
-    public static final String RPFLL = "rpfll";
-    public static final int INT = 406;
-    private String jjD;
+    public static final String SINGLE_MODE = "rpfll";
+    public static final int BAR = 406;
+    private String mode;
     private String title;
     private int type;
 
@@ -22,14 +22,14 @@ public class Chart extends JPanel {
      */
     private void InitializeDrawArea() {
         this.setPreferredSize(new Dimension(600, 600));
-        if (type == INT) {
-            if (jjD.equals(RPFLL)) {
+        if (type == BAR) {
+            if (mode.equals(SINGLE_MODE)) {
                 title = "Bar Chart - Single Mode";
             } else {
                 title = "Bar" + " Chart - Compare Mode";
             }
         } else {
-            if (jjD.equals(RPFLL)) {
+            if (mode.equals(SINGLE_MODE)) {
                 title = "Pie Chart - Single Mode";
             } else {
                 title = "Pie Chart - Compare Mode";
@@ -41,15 +41,15 @@ public class Chart extends JPanel {
         return title;
     }
 
-    public void initializeDS(int ct, String stjjDReq1205) {
-        this.type = ct;
-        this.jjD = stjjDReq1205;
+    public void initializeDS(int type, String mode) {
+        this.type = type;
+        this.mode = mode;
         InitializeDrawArea();
     }
 
     public void paint(Graphics graphic) {
-        if (type == INT) {
-            if (jjD.equals(RPFLL)) {
+        if (type == BAR) {
+            if (mode.equals(SINGLE_MODE)) {
                 graphic.setColor(Color.RED);
                 graphic.fillRect(100, 90, getWidth() - 200, 420);
             } else {
@@ -57,7 +57,7 @@ public class Chart extends JPanel {
                 graphic.fillRect(95, 95, 210, 210);
             }
         } else {
-            if (jjD.equals(RPFLL)) {
+            if (mode.equals(SINGLE_MODE)) {
                 graphic.setColor(Color.BLUE);
                 graphic.fillOval(100, 100, 450, getHeight() - 150);
             } else {
@@ -68,8 +68,8 @@ public class Chart extends JPanel {
         String[] data = null;
         List<String> specialData = new ArrayList<>();
         String[] data3point14 = new String[0];
-        if (type == INT) {
-            if (jjD.equals(RPFLL)) {
+        if (type == BAR) {
+            if (mode.equals(SINGLE_MODE)) {
                 data = new String[1];
                 data[0] = "Bar Chart";
             } else {
@@ -79,7 +79,7 @@ public class Chart extends JPanel {
                 data[i] = "Small";
             }
         } else {
-            if (jjD.equals(RPFLL)) {
+            if (mode.equals(SINGLE_MODE)) {
                 specialData.add("Pie Chart");
             } else {
                 data3point14 = new String[2];
@@ -88,8 +88,8 @@ public class Chart extends JPanel {
             }
         }
         Font font;
-        if (type == INT) {
-            if (jjD.equals("shareddisplay")) {
+        if (type == BAR) {
+            if (mode.equals("shareddisplay")) {
                 if (data != null) {
                     font = new Font("Arial Black", Font.BOLD, 25);
                     graphic.setColor(Color.CYAN);
@@ -119,7 +119,7 @@ public class Chart extends JPanel {
                 graphic.drawString(data[0], 130, 400);
             }
         } else {
-            if (jjD.equals(RPFLL)) {
+            if (mode.equals(SINGLE_MODE)) {
                 font = new Font("Bookman Old Style", Font.BOLD, 55);
                 graphic.setColor(Color.WHITE);
                 graphic.setFont(font);
