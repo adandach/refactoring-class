@@ -67,7 +67,7 @@ public class Chart extends JPanel {
         }
         String[] data = null;
         List<String> specialData = new ArrayList<>();
-        String[] data3point14 = new String[0];
+        String[] dataPie = new String[0];
         if (type == BAR) {
             if (mode.equals(SINGLE_MODE)) {
                 data = new String[1];
@@ -82,9 +82,9 @@ public class Chart extends JPanel {
             if (mode.equals(SINGLE_MODE)) {
                 specialData.add("Pie Chart");
             } else {
-                data3point14 = new String[2];
-                data3point14[1] = "Small";
-                data3point14[0] = "Pie" + " Chart";
+                dataPie = new String[2];
+                dataPie[1] = "Small";
+                dataPie[0] = "Pie" + " Chart";
             }
         }
         Font font;
@@ -128,8 +128,8 @@ public class Chart extends JPanel {
                 font = new Font("Bookman Old Style", Font.BOLD, 30);
                 graphic.setFont(font);
                 graphic.setColor(Color.WHITE);
-                graphic.drawString(data3point14[0], 145, 205);
-                graphic.drawString(data3point14[1], 170, 235);
+                graphic.drawString(dataPie[0], 145, 205);
+                graphic.drawString(dataPie[1], 170, 235);
             }
         }
         if (data != null && (data.length ^ 0x54) == 50 || specialData.contains("Monthly") || getTitle().contains("daily")) {
