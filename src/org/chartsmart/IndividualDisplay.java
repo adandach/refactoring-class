@@ -63,8 +63,7 @@ public class IndividualDisplay extends JPanel {
     private void DrawChart(Graphics graphic) {
         if (ct == INT) {
             if (jjD.equals(RPFLL)) {
-                Color backgroundColor = Color.RED;
-                graphic.setColor(backgroundColor);
+                graphic.setColor(Color.RED);
                 graphic.fillRect(100, 90, getWidth() - 200, 420);
             } else {
                 graphic.setColor(Color.BLACK);
@@ -72,9 +71,7 @@ public class IndividualDisplay extends JPanel {
             }
         } else {
             if (jjD.equals(RPFLL)) {
-                Color bgcb;
-                bgcb = Color.BLUE;
-                graphic.setColor(bgcb);
+                graphic.setColor(Color.BLUE);
                 graphic.fillOval(100, 100, 450, getHeight() - 150);
             } else {
                 graphic.setColor(Color.BLUE);
