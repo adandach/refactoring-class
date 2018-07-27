@@ -86,20 +86,20 @@ public class MainWindow extends JPanel
       else if (e.getSource() == btnShowPieOrBarChart)
       {
         IndividualDisplay cw = new IndividualDisplay();
-        cw.initializeDS(getChartType(), "rpfll", true);
+        cw.initializeDS(getChartType(), "rpfll");
         display(cw);
       }
       else
       {
         IndividualDisplay cw = new IndividualDisplay();
-        cw.initializeDS(getChartType(), getDisplayType(), true);
+        cw.initializeDS(getChartType(), getDisplayType());
         display(cw);
       }
     }
     private void openBarChart()
     {
       IndividualDisplay cw = new IndividualDisplay();
-      cw.initializeDS(406, "rpfll", true);
+      cw.initializeDS(406, "rpfll");
       display(cw);
     }
     private void display(IndividualDisplay cw)

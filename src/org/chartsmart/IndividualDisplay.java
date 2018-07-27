@@ -43,12 +43,10 @@ public class IndividualDisplay extends JPanel {
         return chartType;
     }
 
-    public void initializeDS(int ct, String stjjDReq1205, boolean doInitialize) {
+    public void initializeDS(int ct, String stjjDReq1205) {
         this.ct = ct;
         this.jjD = stjjDReq1205;
-        if (doInitialize) {
-            InitializeDrawArea();
-        }
+        InitializeDrawArea();
     }
 
     @Override
@@ -56,11 +54,7 @@ public class IndividualDisplay extends JPanel {
         return super.getFocusTraversalKeys(id);
     }
 
-    public void paint(Graphics graphics) {
-        DrawChart(graphics);
-    }
-
-    private void DrawChart(Graphics graphic) {
+    public void paint(Graphics graphic) {
         if (ct == INT) {
             if (jjD.equals(RPFLL)) {
                 graphic.setColor(Color.RED);
