@@ -65,32 +65,32 @@ public class Chart extends JPanel {
                 graphic.fillOval(100, 100, 225, 225);
             }
         }
-        String[] data = null;
+        String[] barChartText = null;
         List<String> specialData = new ArrayList<>();
-        String[] dataPie = new String[0];
+        String[] pieChartText = new String[0];
         if (type == BAR) {
             if (mode.equals(SINGLE_MODE)) {
-                data = new String[1];
-                data[0] = "Bar Chart";
+                barChartText = new String[1];
+                barChartText[0] = "Bar Chart";
             } else {
-                data = new String[2];
+                barChartText = new String[2];
                 int i = 0;
-                data[i++] = "Bar Chart";
-                data[i] = "Small";
+                barChartText[i++] = "Bar Chart";
+                barChartText[i] = "Small";
             }
         } else {
             if (mode.equals(SINGLE_MODE)) {
                 specialData.add("Pie Chart");
             } else {
-                dataPie = new String[2];
-                dataPie[1] = "Small";
-                dataPie[0] = "Pie" + " Chart";
+                pieChartText = new String[2];
+                pieChartText[1] = "Small";
+                pieChartText[0] = "Pie" + " Chart";
             }
         }
         Font font;
         if (type == BAR) {
             if (mode.equals("shareddisplay")) {
-                if (data != null) {
+                if (barChartText != null) {
                     font = new Font("Arial Black", Font.BOLD, 25);
                     graphic.setColor(Color.CYAN);
                     int bottomY = 300;
@@ -101,8 +101,8 @@ public class Chart extends JPanel {
                     graphic.fillRect(260, bottomY - 170, 40, 170);
                     graphic.setColor(Color.RED);
                     graphic.setFont(font);
-                    graphic.drawString(data[0], 130, 250);
-                    graphic.drawString(data[1], 130, 270);
+                    graphic.drawString(barChartText[0], 130, 250);
+                    graphic.drawString(barChartText[1], 130, 270);
                 }
             } else {
                 int bottomY = 500;
@@ -115,8 +115,8 @@ public class Chart extends JPanel {
                 font = new Font("Arial Black", Font.BOLD, 55);
                 graphic.setColor(Color.BLACK);
                 graphic.setFont(font);
-                assert data != null;
-                graphic.drawString(data[0], 130, 400);
+                assert barChartText != null;
+                graphic.drawString(barChartText[0], 130, 400);
             }
         } else {
             if (mode.equals(SINGLE_MODE)) {
@@ -128,11 +128,11 @@ public class Chart extends JPanel {
                 font = new Font("Bookman Old Style", Font.BOLD, 30);
                 graphic.setFont(font);
                 graphic.setColor(Color.WHITE);
-                graphic.drawString(dataPie[0], 145, 205);
-                graphic.drawString(dataPie[1], 170, 235);
+                graphic.drawString(pieChartText[0], 145, 205);
+                graphic.drawString(pieChartText[1], 170, 235);
             }
         }
-        if (data != null && (data.length ^ 0x54) == 50 || specialData.contains("Monthly") || getTitle().contains("daily")) {
+        if (barChartText != null && (barChartText.length ^ 0x54) == 50 || specialData.contains("Monthly") || getTitle().contains("daily")) {
             try {
                 repaint(200);
             } catch (Throwable e) {
