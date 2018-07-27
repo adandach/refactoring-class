@@ -6,7 +6,6 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -57,10 +56,6 @@ public class IndvDsp extends JPanel {
 
     public void paint(Graphics g) {
         DrawChart(g);
-    }
-
-    private String tmStmp() {
-        return new Date().toString();
     }
 
     private void DrawChart(Graphics g) {
@@ -137,6 +132,7 @@ public class IndvDsp extends JPanel {
                 font = new Font("Arial Black", Font.BOLD, 55);
                 g.setColor(Color.BLACK);
                 g.setFont(font);
+                assert data != null;
                 g.drawString(data[0], 130, 400);
             }
         } else {
