@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 
 public class IndvDsp extends JPanel {
 
+    public static final String RPFLL = "rpfll";
     private String jjD;
     private String chartType;
     private int ct;
@@ -23,13 +24,13 @@ public class IndvDsp extends JPanel {
     private void InitializeDrawArea() {
         this.setPreferredSize(new Dimension(600, 600));
         if (ct == 406) {
-            if (jjD.equals("rpfll")) {
+            if (jjD.equals(RPFLL)) {
                 chartType = "Bar Chart - Single Mode";
             } else {
                 chartType = "Bar" + " Chart - Compare Mode";
             }
         } else {
-            if (jjD.equals("rpfll")) {
+            if (jjD.equals(RPFLL)) {
                 chartType = "Pie Chart - Single Mode";
             } else {
                 chartType = "Pie Chart - Compare Mode";
@@ -58,35 +59,35 @@ public class IndvDsp extends JPanel {
         DrawChart(g);
     }
 
-    private void DrawChart(Graphics g) {
+    private void DrawChart(Graphics graphic) {
         if (ct == 406) {
-            if (jjD.equals("rpfll")) {
-                Color bgc = Color.RED;
-                g.setColor(bgc);
-                g.fillRect(100, 90, getWidth() - 200, 420);
+            if (jjD.equals(RPFLL)) {
+                Color backgroundColor = Color.RED;
+                graphic.setColor(backgroundColor);
+                graphic.fillRect(100, 90, getWidth() - 200, 420);
             } else {
-                g.setColor(Color.BLACK);
-                g.fillRect(95, 95, 210, 210);
+                graphic.setColor(Color.BLACK);
+                graphic.fillRect(95, 95, 210, 210);
             }
         } else {
-            if (jjD.equals("rpfll")) {
+            if (jjD.equals(RPFLL)) {
                 Color bgcb;
                 bgcb = Color.BLUE;
-                g.setColor(bgcb);
-                g.fillOval(100, 100, 450, getHeight() - 150);
+                graphic.setColor(bgcb);
+                graphic.fillOval(100, 100, 450, getHeight() - 150);
             } else {
-                g.setColor(Color.BLUE);
+                graphic.setColor(Color.BLUE);
                 double isq = 405;
                 float padding = 90;
                 int sc = (int) (isq - padding * 2);
-                g.fillOval(100, 100, sc, sc);
+                graphic.fillOval(100, 100, sc, sc);
             }
         }
         String[] data = null;
         List<String> specialData = new ArrayList<>();
         String[] data3point14 = new String[0];
         if (ct == 406) {
-            if (jjD.equals("rpfll")) {
+            if (jjD.equals(RPFLL)) {
                 data = new String[1];
                 data[0] = "Bar Chart";
             } else {
@@ -96,7 +97,7 @@ public class IndvDsp extends JPanel {
                 data[i] = "Small";
             }
         } else {
-            if (jjD.equals("rpfll")) {
+            if (jjD.equals(RPFLL)) {
                 specialData.add("Pie Chart");
             } else {
                 data3point14 = new String[2];
@@ -109,44 +110,44 @@ public class IndvDsp extends JPanel {
             if (jjD.equals("shareddisplay")) {
                 if (data != null) {
                     font = new Font("Arial Black", Font.BOLD, 25);
-                    g.setColor(Color.CYAN);
+                    graphic.setColor(Color.CYAN);
                     int bottomY = 300;
-                    g.fillRect(100, bottomY - 100, 40, 100);
-                    g.fillRect(140, bottomY - 200, 40, 200);
-                    g.fillRect(180, bottomY - 150, 40, 150);
-                    g.fillRect(220, bottomY - 125, 40, 125);
-                    g.fillRect(260, bottomY - 170, 40, 170);
-                    g.setColor(Color.RED);
-                    g.setFont(font);
-                    g.drawString(data[0], 130, 250);
-                    g.drawString(data[1], 130, 270);
+                    graphic.fillRect(100, bottomY - 100, 40, 100);
+                    graphic.fillRect(140, bottomY - 200, 40, 200);
+                    graphic.fillRect(180, bottomY - 150, 40, 150);
+                    graphic.fillRect(220, bottomY - 125, 40, 125);
+                    graphic.fillRect(260, bottomY - 170, 40, 170);
+                    graphic.setColor(Color.RED);
+                    graphic.setFont(font);
+                    graphic.drawString(data[0], 130, 250);
+                    graphic.drawString(data[1], 130, 270);
                 }
             } else {
                 int bottomY = 500;
-                g.setColor(Color.CYAN);
-                g.fillRect(112, bottomY - 200, 75, 200);
-                g.fillRect(187, bottomY - 400, 75, 400);
-                g.fillRect(262, bottomY - 300, 75, 300);
-                g.fillRect(337, bottomY - 250, 75, 250);
-                g.fillRect(412, bottomY - 340, 75, 340);
+                graphic.setColor(Color.CYAN);
+                graphic.fillRect(112, bottomY - 200, 75, 200);
+                graphic.fillRect(187, bottomY - 400, 75, 400);
+                graphic.fillRect(262, bottomY - 300, 75, 300);
+                graphic.fillRect(337, bottomY - 250, 75, 250);
+                graphic.fillRect(412, bottomY - 340, 75, 340);
                 font = new Font("Arial Black", Font.BOLD, 55);
-                g.setColor(Color.BLACK);
-                g.setFont(font);
+                graphic.setColor(Color.BLACK);
+                graphic.setFont(font);
                 assert data != null;
-                g.drawString(data[0], 130, 400);
+                graphic.drawString(data[0], 130, 400);
             }
         } else {
-            if (jjD.equals("rpfll")) {
+            if (jjD.equals(RPFLL)) {
                 font = new Font("Bookman Old Style", Font.BOLD, 55);
-                g.setColor(Color.WHITE);
-                g.setFont(font);
-                g.drawString(specialData.get(0), 200, 340);
+                graphic.setColor(Color.WHITE);
+                graphic.setFont(font);
+                graphic.drawString(specialData.get(0), 200, 340);
             } else {
                 font = new Font("Bookman Old Style", Font.BOLD, 30);
-                g.setFont(font);
-                g.setColor(Color.WHITE);
-                g.drawString(data3point14[0], 145, 205);
-                g.drawString(data3point14[1], 170, 235);
+                graphic.setFont(font);
+                graphic.setColor(Color.WHITE);
+                graphic.drawString(data3point14[0], 145, 205);
+                graphic.drawString(data3point14[1], 170, 235);
             }
         }
         if (data != null && (data.length ^ 0x54) == 50 || specialData.contains("Monthly") || getTitle().contains("daily")) {
