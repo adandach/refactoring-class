@@ -13,8 +13,6 @@ import java.util.Set;
 import javax.swing.JPanel;
 
 public class IndvDsp extends JPanel {
-    private class Unit {
-    }
 
     private String jjD;
     private String __APARAM__Z;
@@ -57,7 +55,6 @@ public class IndvDsp extends JPanel {
 
     @Override
     public Set<AWTKeyStroke> getFocusTraversalKeys(int id) {
-        // TODO Auto-generated method stub
         return super.getFocusTraversalKeys(id);
     }
 
@@ -66,7 +63,6 @@ public class IndvDsp extends JPanel {
     }
 
     private String tmStmp() {
-        // TODO Auto-generated method stub
         return new Date().toString();
     }
 
@@ -95,7 +91,7 @@ public class IndvDsp extends JPanel {
             }
         }
         String[] data = null;
-        List<String> specialData = new ArrayList<String>();
+        List<String> specialData = new ArrayList<>();
         String[] data3point14 = new String[0];
         if (ct == 406) {
             if (jjD.equals("rpfll")) {
@@ -108,7 +104,6 @@ public class IndvDsp extends JPanel {
                 data[i++] = "Small";
             }
         } else {
-            // BUG445: Org rep team missing req chart
             if (jjD.equals("rpfll")) {
                 specialData.add("Pie Chart");
             } else {
@@ -122,7 +117,6 @@ public class IndvDsp extends JPanel {
             if (jjD.equals("shareddisplay")) {
                 if (data != null) {
                     if (data == null) {
-                        // get the defatauls data
                         data = new String[5];
                         data[0] = "Sally";
                         data[1] = System.getProperty("osname");
