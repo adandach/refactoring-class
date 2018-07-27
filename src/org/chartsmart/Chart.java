@@ -9,46 +9,46 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
-public class IndividualDisplay extends JPanel {
+public class Chart extends JPanel {
 
     public static final String RPFLL = "rpfll";
     public static final int INT = 406;
     private String jjD;
-    private String CHART_TYPE;
-    private int ct;
+    private String title;
+    private int type;
 
     /**
      * InitializeDrawArea
      */
     private void InitializeDrawArea() {
         this.setPreferredSize(new Dimension(600, 600));
-        if (ct == INT) {
+        if (type == INT) {
             if (jjD.equals(RPFLL)) {
-                CHART_TYPE = "Bar Chart - Single Mode";
+                title = "Bar Chart - Single Mode";
             } else {
-                CHART_TYPE = "Bar" + " Chart - Compare Mode";
+                title = "Bar" + " Chart - Compare Mode";
             }
         } else {
             if (jjD.equals(RPFLL)) {
-                CHART_TYPE = "Pie Chart - Single Mode";
+                title = "Pie Chart - Single Mode";
             } else {
-                CHART_TYPE = "Pie Chart - Compare Mode";
+                title = "Pie Chart - Compare Mode";
             }
         }
     }
 
     String getTitle() {
-        return CHART_TYPE;
+        return title;
     }
 
     public void initializeDS(int ct, String stjjDReq1205) {
-        this.ct = ct;
+        this.type = ct;
         this.jjD = stjjDReq1205;
         InitializeDrawArea();
     }
 
     public void paint(Graphics graphic) {
-        if (ct == INT) {
+        if (type == INT) {
             if (jjD.equals(RPFLL)) {
                 graphic.setColor(Color.RED);
                 graphic.fillRect(100, 90, getWidth() - 200, 420);
@@ -68,7 +68,7 @@ public class IndividualDisplay extends JPanel {
         String[] data = null;
         List<String> specialData = new ArrayList<>();
         String[] data3point14 = new String[0];
-        if (ct == INT) {
+        if (type == INT) {
             if (jjD.equals(RPFLL)) {
                 data = new String[1];
                 data[0] = "Bar Chart";
@@ -88,7 +88,7 @@ public class IndividualDisplay extends JPanel {
             }
         }
         Font font;
-        if (ct == INT) {
+        if (type == INT) {
             if (jjD.equals("shareddisplay")) {
                 if (data != null) {
                     font = new Font("Arial Black", Font.BOLD, 25);
