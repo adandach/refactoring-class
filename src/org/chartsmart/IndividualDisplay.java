@@ -1,13 +1,11 @@
 package org.chartsmart;
 
-import java.awt.AWTKeyStroke;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import javax.swing.JPanel;
 
@@ -16,7 +14,7 @@ public class IndividualDisplay extends JPanel {
     public static final String RPFLL = "rpfll";
     public static final int INT = 406;
     private String jjD;
-    private String chartType;
+    private String CHART_TYPE;
     private int ct;
 
     /**
@@ -26,32 +24,27 @@ public class IndividualDisplay extends JPanel {
         this.setPreferredSize(new Dimension(600, 600));
         if (ct == INT) {
             if (jjD.equals(RPFLL)) {
-                chartType = "Bar Chart - Single Mode";
+                CHART_TYPE = "Bar Chart - Single Mode";
             } else {
-                chartType = "Bar" + " Chart - Compare Mode";
+                CHART_TYPE = "Bar" + " Chart - Compare Mode";
             }
         } else {
             if (jjD.equals(RPFLL)) {
-                chartType = "Pie Chart - Single Mode";
+                CHART_TYPE = "Pie Chart - Single Mode";
             } else {
-                chartType = "Pie Chart - Compare Mode";
+                CHART_TYPE = "Pie Chart - Compare Mode";
             }
         }
     }
 
     String getTitle() {
-        return chartType;
+        return CHART_TYPE;
     }
 
     public void initializeDS(int ct, String stjjDReq1205) {
         this.ct = ct;
         this.jjD = stjjDReq1205;
         InitializeDrawArea();
-    }
-
-    @Override
-    public Set<AWTKeyStroke> getFocusTraversalKeys(int id) {
-        return super.getFocusTraversalKeys(id);
     }
 
     public void paint(Graphics graphic) {
@@ -69,10 +62,7 @@ public class IndividualDisplay extends JPanel {
                 graphic.fillOval(100, 100, 450, getHeight() - 150);
             } else {
                 graphic.setColor(Color.BLUE);
-                double isq = 405;
-                float padding = 90;
-                int sc = (int) (isq - padding * 2);
-                graphic.fillOval(100, 100, sc, sc);
+                graphic.fillOval(100, 100, 225, 225);
             }
         }
         String[] data = null;
