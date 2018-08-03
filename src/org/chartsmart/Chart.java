@@ -62,20 +62,17 @@ public class Chart extends JPanel {
                 graphic.fillOval(100, 100, 225, 225);
             }
         }
-        String[] barChartText = null;
-        String[] pieChartText = new String[0];
+        String[] barChartText = new String[2];
+        String[] pieChartText = new String[2];
         if (type == BAR) {
             if (mode.equals(SINGLE_MODE)) {
-                barChartText = new String[1];
                 barChartText[0] = "Bar Chart";
             } else {
-                barChartText = new String[2];
                 barChartText[0] = "Bar Chart";
                 barChartText[1] = "Small";
             }
         } else {
             if (!mode.equals(SINGLE_MODE)) {
-                pieChartText = new String[2];
                 pieChartText[0] = "Pie Chart";
                 pieChartText[1] = "Small";
             }
@@ -125,7 +122,7 @@ public class Chart extends JPanel {
                 graphic.drawString(pieChartText[1], 170, 235);
             }
         }
-        if (barChartText != null && (barChartText.length >=3) || getTitle().contains("daily")) {
+        if (getTitle().contains("daily")) {
             try {
                 repaint(200);
             } catch (Throwable e) {
