@@ -71,17 +71,16 @@ public class Chart extends JPanel {
                 barChartText[0] = "Bar Chart";
             } else {
                 barChartText = new String[2];
-                int index = 0;
-                barChartText[index++] = "Bar Chart";
-                barChartText[index] = "Small";
+                barChartText[0] = "Bar Chart";
+                barChartText[1] = "Small";
             }
         } else {
             if (mode.equals(SINGLE_MODE)) {
                 specialData.add("Pie Chart");
             } else {
                 pieChartText = new String[2];
-                pieChartText[1] = "Small";
                 pieChartText[0] = "Pie Chart";
+                pieChartText[1] = "Small";
             }
         }
         Font font;
