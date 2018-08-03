@@ -81,7 +81,7 @@ public class Chart extends JPanel {
             } else {
                 pieChartText = new String[2];
                 pieChartText[1] = "Small";
-                pieChartText[0] = "Pie" + " Chart";
+                pieChartText[0] = "Pie Chart";
             }
         }
         Font font;
