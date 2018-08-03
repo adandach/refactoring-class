@@ -65,10 +65,8 @@ public class Chart extends JPanel {
         String[] barChartText = new String[2];
         String[] pieChartText = new String[2];
         if (type == BAR) {
-            if (mode.equals(SINGLE_MODE)) {
-                barChartText[0] = "Bar Chart";
-            } else {
-                barChartText[0] = "Bar Chart";
+            barChartText[0] = "Bar Chart";
+            if (!mode.equals(SINGLE_MODE)) {
                 barChartText[1] = "Small";
             }
         } else {
