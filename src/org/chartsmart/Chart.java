@@ -7,7 +7,7 @@ public class Chart extends JPanel {
 
     public static final String SINGLE_MODE = "rpfll";
     public static final int BAR = 406;
-    public static final String SHAREDDISPLAY = "shareddisplay";
+    public static final String COMPARE_MODE = "shareddisplay";
     private String mode;
     private String title;
     private int type;
@@ -39,22 +39,22 @@ public class Chart extends JPanel {
         InitializeDrawArea();
     }
 
-    public void paint(Graphics graphic) {
+    public void paint(Graphics chart) {
         if (type == BAR) {
             if (mode.equals(SINGLE_MODE)) {
-                graphic.setColor(Color.RED);
-                graphic.fillRect(100, 90, getWidth() - 200, 420);
+                chart.setColor(Color.RED);
+                chart.fillRect(100, 90, getWidth() - 200, 420);
             } else {
-                graphic.setColor(Color.BLACK);
-                graphic.fillRect(95, 95, 210, 210);
+                chart.setColor(Color.BLACK);
+                chart.fillRect(95, 95, 210, 210);
             }
         } else {
             if (mode.equals(SINGLE_MODE)) {
-                graphic.setColor(Color.BLUE);
-                graphic.fillOval(100, 100, 450, getHeight() - 150);
+                chart.setColor(Color.BLUE);
+                chart.fillOval(100, 100, 450, getHeight() - 150);
             } else {
-                graphic.setColor(Color.BLUE);
-                graphic.fillOval(100, 100, 225, 225);
+                chart.setColor(Color.BLUE);
+                chart.fillOval(100, 100, 225, 225);
             }
         }
         String[] barChartText = new String[2];
@@ -72,44 +72,44 @@ public class Chart extends JPanel {
         }
         Font font;
         if (type == BAR) {
-            if (mode.equals(SHAREDDISPLAY)) {
+            if (mode.equals(COMPARE_MODE)) {
                 font = new Font("Arial Black", Font.BOLD, 25);
-                graphic.setColor(Color.CYAN);
+                chart.setColor(Color.CYAN);
                 int bottomY = 300;
-                graphic.fillRect(100, bottomY - 100, 40, 100);
-                graphic.fillRect(140, bottomY - 200, 40, 200);
-                graphic.fillRect(180, bottomY - 150, 40, 150);
-                graphic.fillRect(220, bottomY - 125, 40, 125);
-                graphic.fillRect(260, bottomY - 170, 40, 170);
-                graphic.setColor(Color.RED);
-                graphic.setFont(font);
-                graphic.drawString(barChartText[0], 130, 250);
-                graphic.drawString(barChartText[1], 130, 270);
+                chart.fillRect(100, bottomY - 100, 40, 100);
+                chart.fillRect(140, bottomY - 200, 40, 200);
+                chart.fillRect(180, bottomY - 150, 40, 150);
+                chart.fillRect(220, bottomY - 125, 40, 125);
+                chart.fillRect(260, bottomY - 170, 40, 170);
+                chart.setColor(Color.RED);
+                chart.setFont(font);
+                chart.drawString(barChartText[0], 130, 250);
+                chart.drawString(barChartText[1], 130, 270);
             } else {
                 int bottomY = 500;
-                graphic.setColor(Color.CYAN);
-                graphic.fillRect(112, bottomY - 200, 75, 200);
-                graphic.fillRect(187, bottomY - 400, 75, 400);
-                graphic.fillRect(262, bottomY - 300, 75, 300);
-                graphic.fillRect(337, bottomY - 250, 75, 250);
-                graphic.fillRect(412, bottomY - 340, 75, 340);
+                chart.setColor(Color.CYAN);
+                chart.fillRect(112, bottomY - 200, 75, 200);
+                chart.fillRect(187, bottomY - 400, 75, 400);
+                chart.fillRect(262, bottomY - 300, 75, 300);
+                chart.fillRect(337, bottomY - 250, 75, 250);
+                chart.fillRect(412, bottomY - 340, 75, 340);
                 font = new Font("Arial Black", Font.BOLD, 55);
-                graphic.setColor(Color.BLACK);
-                graphic.setFont(font);
-                graphic.drawString(barChartText[0], 130, 400);
+                chart.setColor(Color.BLACK);
+                chart.setFont(font);
+                chart.drawString(barChartText[0], 130, 400);
             }
         } else {
             if (mode.equals(SINGLE_MODE)) {
                 font = new Font("Bookman Old Style", Font.BOLD, 55);
-                graphic.setColor(Color.WHITE);
-                graphic.setFont(font);
-                graphic.drawString("Pie Chart", 200, 340);
+                chart.setColor(Color.WHITE);
+                chart.setFont(font);
+                chart.drawString("Pie Chart", 200, 340);
             } else {
                 font = new Font("Bookman Old Style", Font.BOLD, 30);
-                graphic.setFont(font);
-                graphic.setColor(Color.WHITE);
-                graphic.drawString(pieChartText[0], 145, 205);
-                graphic.drawString(pieChartText[1], 170, 235);
+                chart.setFont(font);
+                chart.setColor(Color.WHITE);
+                chart.drawString(pieChartText[0], 145, 205);
+                chart.drawString(pieChartText[1], 170, 235);
             }
         }
         if (getTitle().contains("daily")) {
