@@ -63,7 +63,6 @@ public class Chart extends JPanel {
             }
         }
         String[] barChartText = null;
-        List<String> specialData = new ArrayList<>();
         String[] pieChartText = new String[0];
         if (type == BAR) {
             if (mode.equals(SINGLE_MODE)) {
@@ -75,9 +74,7 @@ public class Chart extends JPanel {
                 barChartText[1] = "Small";
             }
         } else {
-            if (mode.equals(SINGLE_MODE)) {
-                specialData.add("Pie Chart");
-            } else {
+            if (!mode.equals(SINGLE_MODE)) {
                 pieChartText = new String[2];
                 pieChartText[0] = "Pie Chart";
                 pieChartText[1] = "Small";
@@ -119,7 +116,7 @@ public class Chart extends JPanel {
                 font = new Font("Bookman Old Style", Font.BOLD, 55);
                 graphic.setColor(Color.WHITE);
                 graphic.setFont(font);
-                graphic.drawString(specialData.get(0), 200, 340);
+                graphic.drawString("Pie Chart", 200, 340);
             } else {
                 font = new Font("Bookman Old Style", Font.BOLD, 30);
                 graphic.setFont(font);
