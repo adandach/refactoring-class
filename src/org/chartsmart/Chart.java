@@ -23,7 +23,7 @@ public class Chart extends JPanel {
             if (mode.equals(SINGLE_MODE)) {
                 title = "Bar Chart - Single Mode";
             } else {
-                title = "Bar" + " Chart - Compare Mode";
+                title = "Bar Chart - Compare Mode";
             }
         } else {
             if (mode.equals(SINGLE_MODE)) {
