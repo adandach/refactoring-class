@@ -78,20 +78,18 @@ public class Chart extends JPanel {
         Font font;
         if (type == BAR) {
             if (mode.equals("shareddisplay")) {
-                if (barChartText != null) {
-                    font = new Font("Arial Black", Font.BOLD, 25);
-                    graphic.setColor(Color.CYAN);
-                    int bottomY = 300;
-                    graphic.fillRect(100, bottomY - 100, 40, 100);
-                    graphic.fillRect(140, bottomY - 200, 40, 200);
-                    graphic.fillRect(180, bottomY - 150, 40, 150);
-                    graphic.fillRect(220, bottomY - 125, 40, 125);
-                    graphic.fillRect(260, bottomY - 170, 40, 170);
-                    graphic.setColor(Color.RED);
-                    graphic.setFont(font);
-                    graphic.drawString(barChartText[0], 130, 250);
-                    graphic.drawString(barChartText[1], 130, 270);
-                }
+                font = new Font("Arial Black", Font.BOLD, 25);
+                graphic.setColor(Color.CYAN);
+                int bottomY = 300;
+                graphic.fillRect(100, bottomY - 100, 40, 100);
+                graphic.fillRect(140, bottomY - 200, 40, 200);
+                graphic.fillRect(180, bottomY - 150, 40, 150);
+                graphic.fillRect(220, bottomY - 125, 40, 125);
+                graphic.fillRect(260, bottomY - 170, 40, 170);
+                graphic.setColor(Color.RED);
+                graphic.setFont(font);
+                graphic.drawString(barChartText[0], 130, 250);
+                graphic.drawString(barChartText[1], 130, 270);
             } else {
                 int bottomY = 500;
                 graphic.setColor(Color.CYAN);
@@ -103,7 +101,6 @@ public class Chart extends JPanel {
                 font = new Font("Arial Black", Font.BOLD, 55);
                 graphic.setColor(Color.BLACK);
                 graphic.setFont(font);
-                assert barChartText != null;
                 graphic.drawString(barChartText[0], 130, 400);
             }
         } else {
