@@ -17,9 +17,6 @@ public class Chart extends JPanel {
     private String title;
     private int type;
 
-    /**
-     * InitializeDrawArea
-     */
     private void InitializeDrawArea() {
         this.setPreferredSize(new Dimension(600, 600));
         if (type == BAR) {
@@ -41,7 +38,7 @@ public class Chart extends JPanel {
         return title;
     }
 
-    public void initializeDS(int type, String mode) {
+    public void initializeDrawSpace(int type, String mode) {
         this.type = type;
         this.mode = mode;
         InitializeDrawArea();
@@ -74,9 +71,9 @@ public class Chart extends JPanel {
                 barChartText[0] = "Bar Chart";
             } else {
                 barChartText = new String[2];
-                int i = 0;
-                barChartText[i++] = "Bar Chart";
-                barChartText[i] = "Small";
+                int index = 0;
+                barChartText[index++] = "Bar Chart";
+                barChartText[index] = "Small";
             }
         } else {
             if (mode.equals(SINGLE_MODE)) {
