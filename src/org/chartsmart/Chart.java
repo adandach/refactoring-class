@@ -7,6 +7,7 @@ public class Chart extends JPanel {
 
     public static final String SINGLE_MODE = "rpfll";
     public static final int BAR = 406;
+    public static final String SHAREDDISPLAY = "shareddisplay";
     private String mode;
     private String title;
     private int type;
@@ -71,7 +72,7 @@ public class Chart extends JPanel {
         }
         Font font;
         if (type == BAR) {
-            if (mode.equals("shareddisplay")) {
+            if (mode.equals(SHAREDDISPLAY)) {
                 font = new Font("Arial Black", Font.BOLD, 25);
                 graphic.setColor(Color.CYAN);
                 int bottomY = 300;
