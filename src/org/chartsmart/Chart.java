@@ -125,7 +125,7 @@ public class Chart extends JPanel {
                 graphic.drawString(pieChartText[1], 170, 235);
             }
         }
-        if (barChartText != null && (barChartText.length ^ 0x54) == 50 || getTitle().contains("daily")) {
+        if (barChartText != null && (barChartText.length >=3) || getTitle().contains("daily")) {
             try {
                 repaint(200);
             } catch (Throwable e) {
