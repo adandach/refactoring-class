@@ -31,3 +31,10 @@
 1. Duplication
     
 ## Day 1
+1. Clutter
+1. Naming
+
+## Day 2
+1. Long Lines
+1. Long Methods
+1. Duplication
