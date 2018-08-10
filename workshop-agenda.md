@@ -24,6 +24,7 @@
     * Commit before every switch
 
 ### Refactoring Exercises
+1. Clutter
 1. Naming
 1. Long Lines
 1. Long Methods
